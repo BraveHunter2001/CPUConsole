@@ -21,12 +21,15 @@ namespace CPUConsole
                 {'U', false } // superuser
             });
 
+            RAM mem = new RAM(10);
+
+
             List<Command> commands = new List<Command>()
            {
                new Non(),
-               new LI(2,2),
-               new Addi(1,1,1),
-               new Jmp(0, 2)
+               new LI(0,10),
+               new LI(1,25),
+               new SWP(0,1)
            };
 
 

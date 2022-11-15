@@ -1,12 +1,24 @@
-﻿using CPUConsole.Memory;
+﻿using CPUConsole.Commands.Port;
+using CPUConsole.Commands.Ports;
+using CPUConsole.Memory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace CPUConsole.Commands
 {
+    public interface IExecutable
+    {
+        public void Execute();
+    }
+
+
+
+
+
     public abstract class Command : IDump
     {
         private readonly int _op = 0;
@@ -22,6 +34,41 @@ namespace CPUConsole.Commands
         public abstract void Dump();
     }
 
+    public abstract class CommandPort : Command
+    {
+        protected Port port;
+        protected int regAddr;
+        protected int pinPort;
+        protected CommandPort(int regAddr, int pinPort, Port port ,int opcode) : base(opcode)
+        {
+            this.regAddr = regAddr;
+            this.pinPort = pinPort;
+            this.port = port;
+        }
+
+        public override void Dump()
+        {
+            Console.Write($"OP:{OPcode} r{regAddr} ,  p{pinPort}");
+        }
+    }
+    public abstract class CommandMemmory : Command
+    {
+        protected readonly int registerAddres;
+        protected readonly int memmoryAddres;
+        protected RAM mem;
+        protected CommandMemmory(int regAddr, int memAddr,RAM mem, int opcode) : base(opcode)
+        {
+            registerAddres = regAddr;
+            memmoryAddres = memAddr;
+            this.mem = mem;
+        }
+
+        public override void Dump()
+        {
+            Console.Write($"OP:{OPcode} r{registerAddres} ,  M{memmoryAddres}");
+        }
+
+    }
     public abstract class CommandFormatRDS : Command
     {
         protected readonly int registerDestination;
