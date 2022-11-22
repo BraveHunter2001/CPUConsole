@@ -60,7 +60,7 @@
             this.Flags = new Dictionary<FlagsRegister, bool> {
                 {FlagsRegister.Zero, false }, // Zero 
                 {FlagsRegister.TransitionHighdigt, false }, // transition in high digt
-                {FlagsRegister.Sign, false }, // sign of result
+                {FlagsRegister.Sign, false }, // Negative
                 {FlagsRegister.Overflowing, false }, // overflowing
                 {FlagsRegister.Iterrapt, false }, // interrapt
                 {FlagsRegister.StepByStep, false }, // step-by-step mode
@@ -86,5 +86,12 @@
                 Console.Write($"{i.Key}={Convert.ToInt16(i.Value)} ");
 
         }
+
+        public Dictionary<int, Action> InterruptTable = new Dictionary<int, Action>()
+        {
+            {0, ()=>{ throw new DivideByZeroException();} }
+        };
+
+
     }
 }

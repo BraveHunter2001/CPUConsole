@@ -15,8 +15,13 @@ namespace CPUConsole.Commands.ALU.Integer
 
         public override void Execute(Registers registers)
         {
-            if (registers.Integer[registerDestination] - registers.Integer[registerSource] == 0)
-                registers.Flags[FlagsRegister.Zero] = true;
+            var answer = registers.Integer[registerDestination] - registers.Integer[registerSource];
+
+            registers.Flags[FlagsRegister.Zero] = answer == 0;
+            registers.Flags[FlagsRegister.Sign] = answer < 0;
+            registers.Flags[FlagsRegister.Overflowing] = answer > int.MaxValue;
+            registers.Flags[FlagsRegister.TransitionHighdigt] = false;
+
             registers.ProgrammCounter++;
         }
     }

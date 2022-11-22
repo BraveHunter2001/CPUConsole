@@ -21,10 +21,9 @@ namespace CPUConsole
 
            List<Command> commands = new List<Command>()
            {
-               
                new Non(),
-               new LI(0, 2),
-               new Jmp(1,0)
+               new LI(0, 2)
+
            };
 
             for (int i = 0; i < commands.Count; i = registers.ProgrammCounter)
@@ -32,6 +31,7 @@ namespace CPUConsole
                 var curCommand = commands[i];
                 curCommand.Dump();
                 curCommand.Execute(registers);
+                
                 
                 Console.CursorLeft = 20;
                 registers.Dump();

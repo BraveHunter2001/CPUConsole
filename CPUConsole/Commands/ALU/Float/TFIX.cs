@@ -15,7 +15,14 @@ namespace CPUConsole.Commands.ALU.Float
 
         public override void Execute(Registers registers)
         {
-            registers.Integer[registerDestination] = (int)registers.Float[registerSource];
+            var answer = (int)registers.Float[registerSource];
+
+            registers.Flags[FlagsRegister.Zero] = answer == 0;
+            registers.Flags[FlagsRegister.Sign] = answer < 0;
+            registers.Flags[FlagsRegister.Overflowing] = answer > float.MaxValue;
+            registers.Flags[FlagsRegister.TransitionHighdigt] = false;
+
+            registers.Integer[registerDestination] = answer;
             registers.ProgrammCounter++;
         }
     }
