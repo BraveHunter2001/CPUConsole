@@ -5,20 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPUConsole.Commands.ALU.Integer
+namespace CPUConsole.Commands.Interrupt
 {
-    internal class Cmp : CommandFormatRDS
+    internal class STI : Command
     {
-        public Cmp(int rd, int rs) : base(rd, rs, 7)
+        public STI() : base(0)
         {
         }
 
+        
         public override void Execute(Registers registers)
         {
-            if (registers.Integer[registerDestination] - registers.Integer[registerSource] == 0)
-                registers.Flags[FlagsRegister.Zero] = true;
+            registers.Flags[FlagsRegister.Iterrapt] = true;
             registers.ProgrammCounter++;
         }
     }
-
 }

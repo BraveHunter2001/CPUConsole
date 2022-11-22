@@ -1,7 +1,9 @@
 ﻿using CPUConsole.Commands;
 using CPUConsole.Commands.ALU.Float;
 using CPUConsole.Commands.ALU.Integer;
+using CPUConsole.Commands.Interrupt;
 using CPUConsole.Commands.Memory;
+using CPUConsole.Commands.Ports;
 using CPUConsole.Memory;
 
 namespace CPUConsole
@@ -11,28 +13,19 @@ namespace CPUConsole
     {
         static void Main(string[] args)
         {
-            Registers registers = new Registers(new int[4], new float[3], new Dictionary<char, bool> {
-                {'Z', false }, // Zero 
-                {'C', false }, // transition in high digt
-                {'S', false }, // sign of result
-                {'O', false }, // overflowing
-                { 'I', false }, // interrapt
-                {'T', false }, // step-by-step mode
-                {'U', false } // superuser
-            });
+            Registers registers = new Registers(new int[4], new float[3]);
 
             RAM mem = new RAM(10);
+            Port port = new USB();
 
 
-            List<Command> commands = new List<Command>()
+           List<Command> commands = new List<Command>()
            {
+               
                new Non(),
-               new LI(0,10),
-               new LI(1,25),
-               new SWP(0,1)
+               new LI(0, 2),
+               new Jmp(1,0)
            };
-
-
 
             for (int i = 0; i < commands.Count; i = registers.ProgrammCounter)
             {
