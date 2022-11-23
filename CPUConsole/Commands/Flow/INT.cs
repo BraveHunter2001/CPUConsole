@@ -13,6 +13,7 @@ namespace CPUConsole.Commands.Interrupt
         public override void Execute(Registers registers)
         {
             registers.InterruptTable[codeInterruption]();
+            registers.ProgrammCounterInterrupt = registers.ProgrammCounter;
         }
     }
 }

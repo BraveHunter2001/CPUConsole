@@ -20,7 +20,7 @@ namespace CPUConsole.Commands.ALU.Float
             registers.Flags[FlagsRegister.Zero] = answer == 0;
             registers.Flags[FlagsRegister.Sign] = answer < 0;
             registers.Flags[FlagsRegister.Overflowing] = Math.Abs(answer) > float.MaxValue;
-            registers.Flags[FlagsRegister.TransitionHighdigt] = registers.Flags[FlagsRegister.Overflowing];
+            registers.Flags[FlagsRegister.Carry] = registers.Flags[FlagsRegister.Overflowing];
 
             registers.Float[registerDestination] = answer;
             registers.ProgrammCounter++;

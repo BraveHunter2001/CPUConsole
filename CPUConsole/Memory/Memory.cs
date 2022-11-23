@@ -99,5 +99,6 @@
             }
 
         }
+        public int GetSizeMem() => mem.Length;
     }
 }

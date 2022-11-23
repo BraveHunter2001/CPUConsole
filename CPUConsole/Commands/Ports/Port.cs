@@ -11,6 +11,7 @@ namespace CPUConsole.Commands.Ports
         protected int[] dataPortPins;
         public abstract void SendDataToPin(int dataPortPin, int value);
         public abstract int ReceiveDataToPin(int dataPortPin);
+        public int GetCountPinsInPort() { return dataPortPins.Length; }
 
     }
 }

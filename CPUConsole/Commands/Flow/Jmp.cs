@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPUConsole.Commands
+namespace CPUConsole.Commands.Flow
 {
     internal class Jmp : CommandFormatRDS
     {

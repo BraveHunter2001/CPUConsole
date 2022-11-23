@@ -3,7 +3,7 @@
     public enum FlagsRegister
     {
         Zero = 'Z',
-        TransitionHighdigt = 'C',
+        Carry = 'C',
         Sign = 'S',
         Overflowing = 'O',
         Iterrapt = 'I',
@@ -17,6 +17,7 @@
         public float[] Float;
 
         private int _pc = 0;
+        private int _pcCALL = 0;
         private int _pcIterrupt = 0;
 
         public int ProgrammCounter
@@ -30,7 +31,17 @@
                     _pc = value;
             }
         }
-
+        public int ProgrammCounterCALL
+        {
+            get { return _pcCALL; }
+            set
+            {
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException("Programm counter less zero!");
+                else
+                    _pcCALL = value;
+            }
+        }
         public int ProgrammCounterInterrupt
         {
             get { return _pcIterrupt; }
@@ -59,7 +70,7 @@
             this.Float = Float;
             this.Flags = new Dictionary<FlagsRegister, bool> {
                 {FlagsRegister.Zero, false }, // Zero 
-                {FlagsRegister.TransitionHighdigt, false }, // transition in high digt
+                {FlagsRegister.Carry, false }, // transition in high digt
                 {FlagsRegister.Sign, false }, // Negative
                 {FlagsRegister.Overflowing, false }, // overflowing
                 {FlagsRegister.Iterrapt, false }, // interrapt

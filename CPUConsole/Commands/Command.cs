@@ -9,13 +9,15 @@ namespace CPUConsole.Commands
     public abstract class Command : IDump
     {
         private readonly int _op = 0;
+       
         public int OPcode
         {
             get { return _op; }
         }
-        public Command(int opcode)
+        public Command( int opcode)
         {
             _op = opcode;
+            
         }
         public abstract void Execute(Registers registers);
         
@@ -32,6 +34,8 @@ namespace CPUConsole.Commands
         protected int pinPort;
         protected CommandPort(int regAddr, int pinPort, Port port, int opcode) : base(opcode)
         {
+
+
             this.regAddr = regAddr;
             this.pinPort = pinPort;
             this.port = port;
@@ -50,6 +54,7 @@ namespace CPUConsole.Commands
         protected RAM mem;
         protected CommandMemmory(int regAddr, int memAddr, RAM mem, int opcode) : base(opcode)
         {
+
             registerAddres = regAddr;
             memmoryAddres = memAddr;
             this.mem = mem;
@@ -134,4 +139,6 @@ namespace CPUConsole.Commands
             Console.Write($"OP:{OPcode} r{registerDestination} <- r{registerSourceL}, r{registerSourceR}");
         }
     }
+
+    
 }
