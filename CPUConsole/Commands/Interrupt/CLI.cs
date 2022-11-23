@@ -11,7 +11,9 @@ namespace CPUConsole.Commands.Interrupt
 
         public override void Execute(Registers registers)
         {
+
             registers.Flags[FlagsRegister.Iterrapt] = false;
+
             registers.ProgrammCounter++;
         }
     }

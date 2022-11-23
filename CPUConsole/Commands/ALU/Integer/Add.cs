@@ -18,11 +18,11 @@ namespace CPUConsole.Commands.ALU.Integer
         public override void Execute(Registers registers)
         {
             var answer = registers.Integer[registerSourceL] + registers.Integer[registerSourceR];
-
+            
             registers.Flags[FlagsRegister.Zero] = answer == 0;
             registers.Flags[FlagsRegister.Sign] = answer < 0;
-            registers.Flags[FlagsRegister.Overflowing] = answer > int.MaxValue;
-            registers.Flags[FlagsRegister.TransitionHighdigt] = false;
+            registers.Flags[FlagsRegister.Overflowing] = Math.Abs(answer) > int.MaxValue;
+            registers.Flags[FlagsRegister.TransitionHighdigt] = registers.Flags[FlagsRegister.Overflowing];
 
 
             registers.Integer[registerDestination] = answer;

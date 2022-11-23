@@ -89,7 +89,9 @@
 
         public Dictionary<int, Action> InterruptTable = new Dictionary<int, Action>()
         {
-            {0, ()=>{ throw new DivideByZeroException();} }
+            {0, Interrupts.DividedZeroException},
+            {1,  Interrupts.RegisterException},
+            {2, Interrupts.MemoryException}
         };
 
 

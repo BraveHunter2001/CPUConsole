@@ -19,8 +19,8 @@ namespace CPUConsole.Commands.ALU.Integer
 
             registers.Flags[FlagsRegister.Zero] = answer == 0;
             registers.Flags[FlagsRegister.Sign] = answer < 0;
-            registers.Flags[FlagsRegister.Overflowing] = answer > int.MaxValue;
-            registers.Flags[FlagsRegister.TransitionHighdigt] = true;
+            registers.Flags[FlagsRegister.Overflowing] = Math.Abs(answer) > int.MaxValue;
+            registers.Flags[FlagsRegister.TransitionHighdigt] = registers.Flags[FlagsRegister.Overflowing];
 
             registers.Integer[registerDestination] = answer;
             registers.ProgrammCounter++;
