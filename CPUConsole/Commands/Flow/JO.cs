@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CPUConsole.Commands.Flow
 {
-    internal class JO : CommandFormatRDC
+    internal class JO : CommandFormatC
     {
-        public JO(int rd, int constant) : base(rd, constant, 0)
+        public JO(int constant) : base( constant, 29)
         {
         }
 

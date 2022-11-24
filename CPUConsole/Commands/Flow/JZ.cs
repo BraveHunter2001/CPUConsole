@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CPUConsole.Commands.Flow
 {
-    internal class JZ : CommandFormatRDC
+    internal class JZ : CommandFormatC
     {
-        public JZ(int rd, int constant) : base(rd, constant, 0)
+        public JZ(int constant) : base(constant, 31)
         {
         }
 

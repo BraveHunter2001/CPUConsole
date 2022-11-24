@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.Memory
 {
     internal class SHW : CommandMemmory
     {
-        public SHW(int regAddr, int memAddr, RAM mem) : base(regAddr, memAddr, mem, 0)
+        public SHW(int regAddr, int memAddr, RAM mem) : base(regAddr, memAddr, mem, 40)
         {
         }
 

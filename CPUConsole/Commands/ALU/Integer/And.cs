@@ -10,7 +10,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class And : CommandFormatRDSS
     {
-        public And(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 8)
+        public And(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 3)
         {
         }
 

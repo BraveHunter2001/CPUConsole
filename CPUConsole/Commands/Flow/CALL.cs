@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CPUConsole.Commands.Flow
 {
-    internal class CALL : CommandFormatRDC
+    internal class CALL : CommandFormatC
     {
-        public CALL(int rd, int constant) : base(rd, constant, 0)
+        public CALL(int constant) : base(constant, 19)
         {
         }
 

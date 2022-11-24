@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Float
 {
     internal class TFLO : CommandFormatRDS
     {
-        public TFLO(int floatRd, int integerRs) : base(floatRd, integerRs, 21)
+        public TFLO(int floatRd, int integerRs) : base(floatRd, integerRs, 18)
         {
         }
 

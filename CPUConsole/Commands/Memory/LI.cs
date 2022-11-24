@@ -11,7 +11,7 @@ namespace CPUConsole.Commands.Memory
     internal class LI : CommandFormatRDC
     {
 
-        public LI(int reg, int constant) : base(reg, constant, 1)
+        public LI(int reg, int constant) : base(reg, constant, 36)
         {
 
         }

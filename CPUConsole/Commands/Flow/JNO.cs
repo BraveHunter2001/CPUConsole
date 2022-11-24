@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CPUConsole.Commands.Flow
 {
-    internal class JNO: CommandFormatRDC
+    internal class JNO : CommandFormatC
     {
-        public JNO(int rd, int constant) : base(rd, constant, 0)
+        public JNO(int constant) : base(constant, 26)
         {
         }
 
@@ -18,7 +18,7 @@ namespace CPUConsole.Commands.Flow
         {
             if (!registers.Flags[FlagsRegister.Overflowing])
             {
-                
+
                 registers.ProgrammCounter = constant;
             }
             else
@@ -27,3 +27,4 @@ namespace CPUConsole.Commands.Flow
             }
         }
     }
+}

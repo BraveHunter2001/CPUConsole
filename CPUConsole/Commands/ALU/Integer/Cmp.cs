@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Cmp : CommandFormatRDS
     {
-        public Cmp(int rd, int rs) : base(rd, rs, 7)
+        public Cmp(int rd, int rs) : base(rd, rs, 4)
         {
         }
 

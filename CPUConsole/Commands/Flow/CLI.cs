@@ -4,7 +4,7 @@ namespace CPUConsole.Commands.Interrupt
 {
     internal class CLI : Command
     {
-        public CLI() : base(0)
+        public CLI() : base(20)
         {
         }
 

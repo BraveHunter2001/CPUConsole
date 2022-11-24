@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Float
 {
     internal class TFIX : CommandFormatRDS
     {
-        public TFIX(int integerRd, int floatRs) : base(integerRd,  floatRs, 20)
+        public TFIX(int integerRd, int floatRs) : base(integerRd,  floatRs, 17)
         {
         }
 

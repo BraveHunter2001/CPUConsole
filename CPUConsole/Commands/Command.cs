@@ -34,8 +34,6 @@ namespace CPUConsole.Commands
         protected int pinPort;
         protected CommandPort(int regAddr, int pinPort, Port port, int opcode) : base(opcode)
         {
-
-
             this.regAddr = regAddr;
             this.pinPort = pinPort;
             this.port = port;
@@ -67,6 +65,19 @@ namespace CPUConsole.Commands
             Console.Write($"OP:{OPcode} r{registerAddres} ,  M{memmoryAddres}");
         }
 
+    }
+
+    public abstract class CommandFormatC : Command
+    {
+        protected int constant;
+        protected CommandFormatC(int constant,int opcode) : base(opcode)
+        {
+            this.constant= constant;
+        }
+        public override void Dump()
+        {
+            Console.Write($"OP:{OPcode} Const{constant} ");
+        }
     }
     public abstract class CommandFormatRDS : Command
     {

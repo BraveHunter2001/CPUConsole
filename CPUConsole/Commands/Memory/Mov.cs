@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.Memory
 {
     internal class Mov : CommandFormatRDS
     {
-        public Mov(int rd, int rs) : base(rd, rs, 22)
+        public Mov(int rd, int rs) : base(rd, rs, 38)
         {
         }
 

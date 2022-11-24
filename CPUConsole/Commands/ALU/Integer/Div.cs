@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Div : CommandFormatRDSS
     {
-        public Div(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 6)
+        public Div(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 5)
         {
         }
 

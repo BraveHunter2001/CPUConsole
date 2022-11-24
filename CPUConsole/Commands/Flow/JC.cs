@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CPUConsole.Commands.Flow
 {
-    internal class JC: CommandFormatRDC
+    internal class JC: CommandFormatC
     {
-        public JC(int rd, int constant) : base(rd, constant, 0)
+        public JC(int constant) : base(constant, 23)
         {
         }
 
@@ -18,7 +18,7 @@ namespace CPUConsole.Commands.Flow
         {
             if (registers.Flags[FlagsRegister.Carry])
             {
-                registers.Integer[registerDestination] = registers.ProgrammCounter;
+               
                 registers.ProgrammCounter = constant;
             }
             else

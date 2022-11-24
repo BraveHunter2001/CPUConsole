@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Mul : CommandFormatRDSS
     {
-        public Mul(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 5)
+        public Mul(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 6)
         {
         }
 

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CPUConsole.Commands.Flow
 {
-    internal class JS: CommandFormatRDC
+    internal class JS: CommandFormatC
     {
-        public JS(int rd, int constant) : base(rd, constant, 0)
+        public JS(int constant) : base(constant, 30)
         {
         }
 

@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.Flow
 {
     internal class IRET : Command
     {
-        public IRET() : base(0)
+        public IRET() : base(22)
         {
         }
 

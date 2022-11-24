@@ -57,7 +57,7 @@
         public Dictionary<FlagsRegister, bool> Flags { get; set; }
         public Dictionary<FlagsRegister, bool> FlagsInterrupt { get; set; }
 
-        public Registers(int[] integer, float[] Float, Dictionary<FlagsRegister, bool> flags)
+        private Registers(int[] integer, float[] Float, Dictionary<FlagsRegister, bool> flags)
         {
             Integer = integer;
             this.Float = Float;
@@ -101,7 +101,7 @@
         public Dictionary<int, Action> InterruptTable = new Dictionary<int, Action>()
         {
             {0, Interrupts.DividedZeroException},
-            {1,  Interrupts.RegisterException},
+            {1, Interrupts.RegisterException},
             {2, Interrupts.MemoryException}
         };
 

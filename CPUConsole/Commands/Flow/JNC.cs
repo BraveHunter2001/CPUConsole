@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CPUConsole.Commands.Flow
 {
-    internal class JNC: CommandFormatRDC
+    internal class JNC : CommandFormatC
     {
-        public JNC (int rd, int constant) : base(rd, constant, 0)
+        public JNC(int constant) : base(constant, 25)
         {
         }
 
@@ -17,7 +17,7 @@ namespace CPUConsole.Commands.Flow
         {
             if (!registers.Flags[FlagsRegister.Carry])
             {
-                
+
                 registers.ProgrammCounter = constant;
             }
             else
@@ -26,3 +26,4 @@ namespace CPUConsole.Commands.Flow
             }
         }
     }
+}

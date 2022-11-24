@@ -12,7 +12,7 @@ namespace CPUConsole.Commands.ALU.Float
     /// </summary>
     internal class Milf : CommandFormatRDSS
     {
-        public Milf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 18)
+        public Milf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 15)
         {
         }
 

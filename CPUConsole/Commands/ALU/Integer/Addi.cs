@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Addi : CommandFormatRDSC
     {
-        public Addi(int rd, int rs, int constant) : base(rd, rs, constant, 3)
+        public Addi(int rd, int rs, int constant) : base(rd, rs, constant, 2)
         {
         }
 

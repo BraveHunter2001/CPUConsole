@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Float
 {
     internal class Addf : CommandFormatRDSS
     {
-        public Addf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 15)
+        public Addf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 13)
         {
         }
 

@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Xor : CommandFormatRDSS
     {
-        public Xor(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 10)
+        public Xor(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 12)
         {
         }
 

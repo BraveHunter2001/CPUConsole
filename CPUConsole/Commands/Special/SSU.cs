@@ -5,17 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPUConsole.Commands.Flow
+namespace CPUConsole.Commands.Special
 {
-    internal class Jmp : CommandFormatC
+    internal class SSU : CommandFormatC
     {
-        public Jmp(int constant) : base(constant, 24)
+       
+
+        public SSU(int constant) : base(constant, 47)
         {
         }
 
         public override void Execute(Registers registers)
         {
-            registers.ProgrammCounter = registers.Integer[constant];
+            registers.Flags[FlagsRegister.SuperUser] = constant == 1;
         }
     }
 }

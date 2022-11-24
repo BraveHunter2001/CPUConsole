@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.Ports
 {
     internal class OUT : CommandPort
     {
-        public OUT(int regAddr, int pinPort, Port port) : base(regAddr, pinPort, port, 0)
+        public OUT(int regAddr, int pinPort, Port port) : base(regAddr, pinPort, port, 44)
         {
         }
 

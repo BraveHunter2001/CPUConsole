@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.Interrupt
 {
     internal class STI : Command
     {
-        public STI() : base(0)
+        public STI() : base(33)
         {
         }
 

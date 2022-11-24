@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Float
 {
     internal class Divf : CommandFormatRDSS
     {
-        public Divf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 19)
+        public Divf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 14)
         {
         }
 

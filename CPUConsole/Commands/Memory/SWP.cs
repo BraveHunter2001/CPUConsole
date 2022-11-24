@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.Memory
 {
     internal class SWP : CommandFormatRDS
     {
-        public SWP(int rd, int rs) : base(rd, rs, 0)
+        public SWP(int rd, int rs) : base(rd, rs, 42)
         {
         }
 

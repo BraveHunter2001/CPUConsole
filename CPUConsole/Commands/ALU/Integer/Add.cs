@@ -10,7 +10,7 @@ namespace CPUConsole.Commands.ALU.Integer
     internal class Add : CommandFormatRDSS
     {
 
-        public Add(int regOut, int regLeft, int regRight) : base(regOut, regLeft, regRight, 2)
+        public Add(int regOut, int regLeft, int regRight) : base(regOut, regLeft, regRight, 1)
         {
 
         }

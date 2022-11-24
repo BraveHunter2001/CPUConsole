@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Not : CommandFormatRDS
     {
-        public Not(int rd, int rs) : base(rd, rs, 11)
+        public Not(int rd, int rs) : base(rd, rs, 7)
         {
         }
 

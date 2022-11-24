@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Sub : CommandFormatRDSS
     {
-        public Sub(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 4)
+        public Sub(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 11)
         {
         }
 

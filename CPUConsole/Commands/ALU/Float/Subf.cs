@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Float
 {
     internal class Subf : CommandFormatRDSS
     {
-        public Subf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 18)
+        public Subf(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 16)
         {
         }
 

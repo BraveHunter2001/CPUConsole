@@ -5,7 +5,7 @@ namespace CPUConsole.Commands.Interrupt
     internal class INT : Command
     {
         int codeInterruption = 0;
-        public INT(int codeInterruption) : base(0)
+        public INT(int codeInterruption) : base(21)
         {
             this.codeInterruption = codeInterruption;
         }

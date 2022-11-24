@@ -4,6 +4,7 @@ using CPUConsole.Commands.ALU.Integer;
 using CPUConsole.Commands.Interrupt;
 using CPUConsole.Commands.Memory;
 using CPUConsole.Commands.Ports;
+using CPUConsole.Commands.Special;
 using CPUConsole.Memory;
 
 namespace CPUConsole
@@ -19,11 +20,11 @@ namespace CPUConsole
             Port port = new USB();
 
 
-           List<Command> commands = new List<Command>()
+            List<Command> commands = new List<Command>()
            {
-               new Non(),
-               new LI(0, 2)
-
+               CommadFactory.CreateCommand(CommandOP.Li,0,1),
+               CommadFactory.CreateCommand(CommandOP.Li,1,1),
+               CommadFactory.CreateCommand(CommandOP.Add,2,1,1)
            };
 
             for (int i = 0; i < commands.Count; i = registers.ProgrammCounter)

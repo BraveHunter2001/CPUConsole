@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CPUConsole.Commands
+namespace CPUConsole.Commands.Special
 {
     public class Non : Command
     {
-        public Non() : base(0) // opcode = 0
-        {}
+        public Non() : base(45) // opcode = 0
+        { }
 
         public override void Dump()
         {

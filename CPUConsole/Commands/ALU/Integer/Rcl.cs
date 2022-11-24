@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Rcl : CommandFormatRDSS
     {
-        public Rcl(int rd, int left, int right) : base(rd, left,right,  12)
+        public Rcl(int rd, int left, int right) : base(rd, left,right,  9)
         {
         }
 

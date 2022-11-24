@@ -9,7 +9,7 @@ namespace CPUConsole.Commands.ALU.Integer
 {
     internal class Or : CommandFormatRDSS
     {
-        public Or(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 9)
+        public Or(int rd, int regLeft, int regRight) : base(rd, regLeft, regRight, 8)
         {
         }
 
