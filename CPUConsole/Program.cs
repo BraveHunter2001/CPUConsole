@@ -14,33 +14,23 @@ namespace CPUConsole
     {
         static void Main(string[] args)
         {
-            Registers registers = new Registers(new int[4], new float[3]);
+            Parser p = new Parser(@"C:\Users\Ilya\Desktop\comm.txt");
+            CPU cpu = new CPU();
 
-            RAM mem = new RAM(10);
-            Port port = new USB();
+            var t = p.GetCommands();
+            List<Command> commands = new List<Command>();
 
-
-            List<Command> commands = new List<Command>()
-           {
-               CommadFactory.CreateCommand(CommandOP.Li,0,1),
-               CommadFactory.CreateCommand(CommandOP.Li,1,1),
-               CommadFactory.CreateCommand(CommandOP.Add,2,1,1)
-           };
-
-            for (int i = 0; i < commands.Count; i = registers.ProgrammCounter)
+            foreach (var c in t)
             {
-                var curCommand = commands[i];
-                curCommand.Dump();
-                curCommand.Execute(registers);
-                
-                
-                Console.CursorLeft = 20;
-                registers.Dump();
-                Console.WriteLine();
-                Thread.Sleep(1000);
+                commands.Add(cpu.commadFactory.CreateCommand(c));
             }
+            
+           
+           
 
+            cpu.AddCommands(commands);
 
+            cpu.ExecuteCommands();
         }
     }
 }

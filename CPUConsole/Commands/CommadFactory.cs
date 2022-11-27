@@ -17,117 +17,124 @@ namespace CPUConsole.Commands
 {
     public enum CommandOP
     {
-        Add = 1,
-        Addi,
-        And,
-        Cmp,
-        Div,
-        Mul,
-        Not,
-        Or,
-        Rcl,
-        Rcr,
-        Sub,
-        Xor,
-        Addf,
-        Divf,
-        Mulf,
-        Subf,
+        ADD = 1,
+        ADDI,
+        AND,
+        CMP,
+        DIV,
+        MUL,
+        NOT,
+        OR,
+        RCL,
+        RCR,
+        SUB,
+        XOR,
+        ADDF,
+        DIVF,
+        MULF,
+        SUBF,
         TFIX,
         TFLO,
-        Call,
-        Cli,
-        Int,
-        Iret,
-        Jc,
-        Jmp,
-        Jnc,
-        Jno,
-        Jns,
-        Jnz,
-        Jo,
-        Js,
-        Jz,
-        Ret,
-        Sti,
-        Ldw,
-        Lhw,
-        Li,
-        Lw,
-        Mov,
-        Sdw,
-        Shw,
-        Sw,
-        Swp,
-        In,
-        Out,
-        Non,
-        Rf,
-        Ssu,
-        Wr
+        CALL,
+        CLI,
+        INT,
+        IRET,
+        JC,
+        JMP,
+        JNC,
+        JNO,
+        JNS,
+        JNZ,
+        JO,
+        JS,
+        JZ,
+        RET,
+        STI,
+        LDW,
+        LHW,
+        LI,
+        LW,
+        MOV,
+        SDW,
+        SHW,
+        SW,
+        SWP,
+        IN,
+        OUT,
+        NON,
+        RF,
+        SSU,
+        WR
+       
     }
 
     
-    public static class CommadFactory
+    public  class CommadFactory
     {
-       
-        public static Command CreateCommand(CommandOP op,
-            int part1 = 0,
-            int part2 = 0,
-            int part3 = 0,
-            RAM mem = null,
-            Port port = null)
+        RAM mem = null;
+        Port port = null;
+       public CommadFactory( RAM mem, Port port)
+        {
+            this.mem = mem;
+            this.port = port;
+        }
+
+        public Command CreateCommand(object[] arr)
         {
             Command cmd = null;
+            CommandOP op = (CommandOP)arr[0];
+            int part1 = arr.Length > 1 ? (int)arr[1] : 0;
+            int part2 = arr.Length > 2 ? (int)arr[2] : 0;
+            int part3 = arr.Length > 3 ? (int)arr[3] : 0;
 
             switch (op)
             {
-                case CommandOP.Add:
+                case CommandOP.ADD:
                     cmd = new Add(part1, part2, part3);
                     break;
-                case CommandOP.Addi:
+                case CommandOP.ADDI:
                     cmd = new Addi(part1, part2, part3);
                     break;
-                case CommandOP.And:
+                case CommandOP.AND:
                     cmd = new And(part1, part2, part3);
                     break;
-                case CommandOP.Cmp:
+                case CommandOP.CMP:
                     cmd = new Cmp(part1, part2);
                     break;
-                case CommandOP.Div:
+                case CommandOP.DIV:
                     cmd = new Div(part1, part2, part3);
                     break;
-                case CommandOP.Mul:
+                case CommandOP.MUL:
                     cmd = new Mul(part1, part2, part3);
                     break;
-                case CommandOP.Not:
+                case CommandOP.NOT:
                     cmd = new Not(part1, part2);
                     break;
-                case CommandOP.Or:
+                case CommandOP.OR:
                     cmd = new Or(part1, part2, part3);
                     break;
-                case CommandOP.Rcl:
+                case CommandOP.RCL:
                     cmd = new Rcl(part1, part2, part3);
                     break;
-                case CommandOP.Rcr:
+                case CommandOP.RCR:
                     cmd = new Rcl(part1, part2, part3);
                     break;
-                case CommandOP.Sub:
+                case CommandOP.SUB:
                     cmd = new Sub(part1, part2, part3);
                     break;
-                case CommandOP.Xor:
+                case CommandOP.XOR:
                     cmd = new Xor(part1, part2, part3);
                     break;
-                case CommandOP.Addf:
+                case CommandOP.ADDF:
                     cmd = new Addf(part1, part2, part3);
                     break;
-                case CommandOP.Divf:
+                case CommandOP.DIVF:
                     cmd = new Divf(part1, part2, part3);
                     break;
-                case CommandOP.Mulf:
+                case CommandOP.MULF:
                     cmd = new Milf(part1, part2, part3);
                     break;
-                case CommandOP.Subf:
+                case CommandOP.SUBF:
                     cmd = new Subf(part1, part2, part3);
                     break;
                 case CommandOP.TFIX:
@@ -136,88 +143,242 @@ namespace CPUConsole.Commands
                 case CommandOP.TFLO:
                     cmd = new TFLO(part1, part2);
                     break;
-                case CommandOP.Call:
+                case CommandOP.CALL:
                     cmd = new CALL(part1);
                     break;
-                case CommandOP.Cli:
+                case CommandOP.CLI:
                     cmd = new CLI();
                     break;
-                case CommandOP.Int:
+                case CommandOP.INT:
                     cmd = new INT(part1);
                     break;
-                case CommandOP.Iret:
+                case CommandOP.IRET:
                     cmd = new IRET();
                     break;
-                case CommandOP.Jc:
+                case CommandOP.JC:
                     cmd = new JC(part1);
                     break;
-                case CommandOP.Jmp:
+                case CommandOP.JMP:
                     cmd = new Jmp(part1);
                     break;
-                case CommandOP.Jnc:
+                case CommandOP.JNC:
                     cmd = new JNC(part1);
                     break;
-                case CommandOP.Jno:
+                case CommandOP.JNO:
                     cmd = new JNO(part1);
                     break;
-                case CommandOP.Jns:
+                case CommandOP.JNS:
                     cmd = new JNS(part1);
                     break;
-                case CommandOP.Jnz:
+                case CommandOP.JNZ:
                     cmd = new JNZ(part1);
                     break;
-                case CommandOP.Jo:
+                case CommandOP.JO:
                     cmd = new JO(part1);
                     break;
-                case CommandOP.Js:
+                case CommandOP.JS:
                     cmd = new JS(part1);
                     break;
-                case CommandOP.Jz:
+                case CommandOP.JZ:
                     cmd = new JZ(part1);
                     break;
-                case CommandOP.Ret:
+                case CommandOP.RET:
                     cmd = new RET();
                     break;
-                case CommandOP.Sti:
+                case CommandOP.STI:
                     cmd = new STI();
                     break;
-                case CommandOP.Ldw:
+                case CommandOP.LDW:
                     cmd = new LDW(part1, part2, mem);
                     break;
-                case CommandOP.Lhw:
+                case CommandOP.LHW:
                     cmd = new LHW(part1, part2, mem);
                     break;
-                case CommandOP.Li:
+                case CommandOP.LI:
                     cmd = new LI(part1, part2);
                     break;
-                case CommandOP.Mov:
+                case CommandOP.MOV:
                     cmd = new Mov(part1, part2);
                     break;
-                case CommandOP.Sdw:
-                    cmd = new SDW(part1, part2,mem);
-                    break;
-                case CommandOP.Shw:
+                case CommandOP.SDW:
                     cmd = new SDW(part1, part2, mem);
                     break;
-                case CommandOP.Sw:
+                case CommandOP.SHW:
+                    cmd = new SDW(part1, part2, mem);
+                    break;
+                case CommandOP.SW:
                     cmd = new SW(part1, part2, mem);
                     break;
-                case CommandOP.Swp:
+                case CommandOP.SWP:
                     cmd = new SWP(part1, part2);
                     break;
-                case CommandOP.In:
+                case CommandOP.IN:
                     cmd = new IN(part1, part2, port);
                     break;
-                case CommandOP.Out:
+                case CommandOP.OUT:
                     cmd = new OUT(part1, part2, port);
                     break;
-                case CommandOP.Rf:
+                case CommandOP.RF:
                     cmd = new RF(part1);
                     break;
-                case CommandOP.Ssu:
+                case CommandOP.SSU:
                     cmd = new SSU(part1);
                     break;
-                case CommandOP.Wr:
+                case CommandOP.WR:
+                    cmd = new WR(part1);
+                    break;
+
+
+            }
+
+            return cmd;
+        }
+        public  Command CreateCommand(CommandOP op,
+            int part1 = 0,
+            int part2 = 0,
+            int part3 = 0
+           )
+        {
+            Command cmd = null;
+
+            switch (op)
+            {
+                case CommandOP.ADD:
+                    cmd = new Add(part1, part2, part3);
+                    break;
+                case CommandOP.ADDI:
+                    cmd = new Addi(part1, part2, part3);
+                    break;
+                case CommandOP.AND:
+                    cmd = new And(part1, part2, part3);
+                    break;
+                case CommandOP.CMP:
+                    cmd = new Cmp(part1, part2);
+                    break;
+                case CommandOP.DIV:
+                    cmd = new Div(part1, part2, part3);
+                    break;
+                case CommandOP.MUL:
+                    cmd = new Mul(part1, part2, part3);
+                    break;
+                case CommandOP.NOT:
+                    cmd = new Not(part1, part2);
+                    break;
+                case CommandOP.OR:
+                    cmd = new Or(part1, part2, part3);
+                    break;
+                case CommandOP.RCL:
+                    cmd = new Rcl(part1, part2, part3);
+                    break;
+                case CommandOP.RCR:
+                    cmd = new Rcl(part1, part2, part3);
+                    break;
+                case CommandOP.SUB:
+                    cmd = new Sub(part1, part2, part3);
+                    break;
+                case CommandOP.XOR:
+                    cmd = new Xor(part1, part2, part3);
+                    break;
+                case CommandOP.ADDF:
+                    cmd = new Addf(part1, part2, part3);
+                    break;
+                case CommandOP.DIVF:
+                    cmd = new Divf(part1, part2, part3);
+                    break;
+                case CommandOP.MULF:
+                    cmd = new Milf(part1, part2, part3);
+                    break;
+                case CommandOP.SUBF:
+                    cmd = new Subf(part1, part2, part3);
+                    break;
+                case CommandOP.TFIX:
+                    cmd = new TFIX(part1, part2);
+                    break;
+                case CommandOP.TFLO:
+                    cmd = new TFLO(part1, part2);
+                    break;
+                case CommandOP.CALL:
+                    cmd = new CALL(part1);
+                    break;
+                case CommandOP.CLI:
+                    cmd = new CLI();
+                    break;
+                case CommandOP.INT:
+                    cmd = new INT(part1);
+                    break;
+                case CommandOP.IRET:
+                    cmd = new IRET();
+                    break;
+                case CommandOP.JC:
+                    cmd = new JC(part1);
+                    break;
+                case CommandOP.JMP:
+                    cmd = new Jmp(part1);
+                    break;
+                case CommandOP.JNC:
+                    cmd = new JNC(part1);
+                    break;
+                case CommandOP.JNO:
+                    cmd = new JNO(part1);
+                    break;
+                case CommandOP.JNS:
+                    cmd = new JNS(part1);
+                    break;
+                case CommandOP.JNZ:
+                    cmd = new JNZ(part1);
+                    break;
+                case CommandOP.JO:
+                    cmd = new JO(part1);
+                    break;
+                case CommandOP.JS:
+                    cmd = new JS(part1);
+                    break;
+                case CommandOP.JZ:
+                    cmd = new JZ(part1);
+                    break;
+                case CommandOP.RET:
+                    cmd = new RET();
+                    break;
+                case CommandOP.STI:
+                    cmd = new STI();
+                    break;
+                case CommandOP.LDW:
+                    cmd = new LDW(part1, part2, mem);
+                    break;
+                case CommandOP.LHW:
+                    cmd = new LHW(part1, part2, mem);
+                    break;
+                case CommandOP.LI:
+                    cmd = new LI(part1, part2);
+                    break;
+                case CommandOP.MOV:
+                    cmd = new Mov(part1, part2);
+                    break;
+                case CommandOP.SDW:
+                    cmd = new SDW(part1, part2,mem);
+                    break;
+                case CommandOP.SHW:
+                    cmd = new SDW(part1, part2, mem);
+                    break;
+                case CommandOP.SW:
+                    cmd = new SW(part1, part2, mem);
+                    break;
+                case CommandOP.SWP:
+                    cmd = new SWP(part1, part2);
+                    break;
+                case CommandOP.IN:
+                    cmd = new IN(part1, part2, port);
+                    break;
+                case CommandOP.OUT:
+                    cmd = new OUT(part1, part2, port);
+                    break;
+                case CommandOP.RF:
+                    cmd = new RF(part1);
+                    break;
+                case CommandOP.SSU:
+                    cmd = new SSU(part1);
+                    break;
+                case CommandOP.WR:
                     cmd = new WR(part1);
                     break;
 
