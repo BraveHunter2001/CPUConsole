@@ -227,7 +227,9 @@ namespace CPUConsole.Commands
                 case CommandOP.WR:
                     cmd = new WR(part1);
                     break;
-
+                case CommandOP.NON:
+                    cmd = new Non();
+                    break;
 
             }
 
